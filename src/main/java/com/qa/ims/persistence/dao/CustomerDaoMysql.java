@@ -23,14 +23,14 @@ public class CustomerDaoMysql implements Dao<Customer> {
 
 	public CustomerDaoMysql(String username, String password) {
 		this.jdbcConnectionUrl = "jdbc:mysql://" + Utils.MYSQL_URL + "/ims";
-		this.username = username;
-		this.password = password;
+		this.username = "root";
+		this.password = "Derpin12";
 	}
 
 	public CustomerDaoMysql(String jdbcConnectionUrl, String username, String password) {
 		this.jdbcConnectionUrl = jdbcConnectionUrl;
-		this.username = username;
-		this.password = password;
+		this.username = "root";
+		this.password = "Derpin12";
 	}
 
 	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
@@ -45,7 +45,6 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	 *
 	 * @return A list of customers
 	 */
-	@Override
 	public List<Customer> readAll() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
@@ -80,7 +79,6 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	 *
 	 * @param customer - takes in a customer object. id will be ignored
 	 */
-	@Override
 	public Customer create(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
@@ -114,7 +112,6 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	 *                 update that customer in the database
 	 * @return
 	 */
-	@Override
 	public Customer update(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
@@ -133,7 +130,6 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	 *
 	 * @param id - id of the customer
 	 */
-	@Override
 	public void delete(long id) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
@@ -142,6 +138,30 @@ public class CustomerDaoMysql implements Dao<Customer> {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
 		}
+	}
+
+	@Override
+	public Customer create() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer update() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

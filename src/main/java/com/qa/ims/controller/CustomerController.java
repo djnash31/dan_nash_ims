@@ -46,7 +46,7 @@ public class CustomerController implements CrudController<Customer>{
 	public Customer create() {
 		LOGGER.info("Please enter a first name");
 		String firstName = getInput();
-		LOGGER.info("Please enter a surname");
+		LOGGER.info("Please enter the surname");
 		String surname = getInput();
 		Customer customer = customerService.create(new Customer(firstName, surname));
 		LOGGER.info("Customer created");
@@ -77,6 +77,24 @@ public class CustomerController implements CrudController<Customer>{
 		LOGGER.info("Please enter the id of the customer you would like to delete");
 		Long id = Long.valueOf(getInput());
 		customerService.delete(id);
+	}
+
+
+	public Customer create(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public Customer update(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
