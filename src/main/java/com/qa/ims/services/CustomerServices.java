@@ -4,15 +4,16 @@ import java.util.List;
 
 import com.qa.ims.persistence.dao.Dao;
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Item;
 
 public class CustomerServices implements CrudServices<Customer> {
 
 	private Dao<Customer> customerDao;
-	
+
 	public CustomerServices(Dao<Customer> customerDao) {
 		this.customerDao = customerDao;
 	}
-	
+
 	public List<Customer> readAll() {
 		return customerDao.readAll();
 	}

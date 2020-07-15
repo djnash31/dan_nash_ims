@@ -14,5 +14,7 @@ public class Utils {
 	public static String getInput() {
 		return SCANNER.nextLine();
 	}
-
+	public static int getInt() {
+		return SCANNER.nextInt();
+	}
 }

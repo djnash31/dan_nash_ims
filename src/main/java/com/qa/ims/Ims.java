@@ -14,10 +14,13 @@ import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
+import com.qa.ims.controller.ItemController;
 import com.qa.ims.persistence.dao.CustomerDaoMysql;
+import com.qa.ims.persistence.dao.itemDao;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.services.CustomerServices;
+import com.qa.ims.services.itemServices;
 import com.qa.ims.utils.Utils;
 
 public class Ims {
@@ -26,21 +29,18 @@ public class Ims {
 
 	private CustomerController customerController = null;
 //	private Order order = null;
-//	private Item item = null;
-	
+	private ItemController itemController = null;
+
 	public void imsSystem() {
 		LOGGER.info("What is your username");
 		String username = Utils.getInput();
 		LOGGER.info("What is your password");
 		String password = Utils.getInput();
 
-		
-		
 		init(username, password);
 
-		
-		
 		customerController = new CustomerController(new CustomerServices(new CustomerDaoMysql(username, password)));
+		itemController = new ItemController(new itemServices(new itemDao(username, password)));
 		
 		LOGGER.info("Which entity would you like to use?");
 		Domain.printDomains();
@@ -52,19 +52,19 @@ public class Ims {
 		Action action = Action.getAction();
 
 		switch (domain) {
-			case CUSTOMER:
-				doAction(customerController, action);
-				break;
-			case ITEM:
-//				doAction(item, action);
-				break;
-			case ORDER:
+		case CUSTOMER:
+			doAction(customerController, action);
+			break;
+		case ITEM:
+			doAction(itemController, action);
+			break;
+		case ORDER:
 //				doAction(order, action);
-				break;
-			case STOP:
-				break;
-			default:
-				break;
+			break;
+		case STOP:
+			break;
+		default:
+			break;
 		}
 
 	}
