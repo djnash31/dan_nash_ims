@@ -2,8 +2,6 @@ package com.qa.ims.persistence.dao;
 
 import java.util.List;
 
-import com.qa.ims.persistence.domain.Customer;
-
 
 public interface Dao<T> {
 

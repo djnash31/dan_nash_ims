@@ -14,10 +14,10 @@ public class Item {
 		this.name=name;
 		this.itemsPrice=itemsPrice;
 	}
-	public Long getId() {
+	public Long getItemid() {
 		return Itemid;
 	}
-	public void setItemId(Long Itemid) {
+	public void setItemid(Long Itemid) {
 		this.Itemid = Itemid;
 	}
 	public String getName() {

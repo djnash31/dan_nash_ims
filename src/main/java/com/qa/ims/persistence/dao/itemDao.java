@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.Utils;
 
@@ -33,23 +32,17 @@ public class itemDao implements Dao<Item>{
 		this.password = "Derpin12";
 	}
 
-//	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
-//		Long id = resultSet.getLong("id");
-//		String firstName = resultSet.getString("first_name");
-//		String surname = resultSet.getString("surname");
-//		return new Customer(id, firstName, surname);
-//	}
 	Item itemFromResultSet(ResultSet resultSet) throws SQLException {
-		Long id = resultSet.getLong("id");
+		Long Itemid = resultSet.getLong("id");
 		String name = resultSet.getString("name");
 		int itemsPrice = resultSet.getInt("itemsPrice");
-		return new Item(id, name, itemsPrice);
+		return new Item(Itemid, name, itemsPrice);
 	}
 
 	/**
-	 * Reads all customers from the database
+	 * Reads all items from the database
 	 *
-	 * @return A list of customers
+	 * @return A list of items
 	 */
 	public List<Item> readAll() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
@@ -70,7 +63,7 @@ public class itemDao implements Dao<Item>{
 	public Item readLatest() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY Itemid DESC LIMIT 1");) {
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -81,9 +74,9 @@ public class itemDao implements Dao<Item>{
 	}
 
 	/**
-	 * Creates a customer in the database
+	 * Creates a item in the database
 	 *
-	 * @param customer - takes in a customer object. id will be ignored
+	 * @param item - takes in a customer object. id will be ignored
 	 */
 	public Item create(Item item) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
@@ -98,10 +91,10 @@ public class itemDao implements Dao<Item>{
 		return null;
 	}
 
-	public Item readItem(Long id) {
+	public Item readItem(Long Itemid) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT FROM items where id = " + id);) {
+				ResultSet resultSet = statement.executeQuery("SELECT FROM items where id = " + Itemid);) {
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -122,8 +115,8 @@ public class itemDao implements Dao<Item>{
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("update customers set name ='" + item.getName() + "', price ='"
-					+ item.getitemsPrice() + "' where id =" + item.getId());
-			return readItem(item.getId());
+					+ item.getitemsPrice() + "' where id =" + item.getItemid());
+			return readItem(item.getItemid());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
@@ -136,10 +129,10 @@ public class itemDao implements Dao<Item>{
 	 *
 	 * @param id - id of the customer
 	 */
-	public void delete(long id) {
+	public void delete(long Itemid) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("delete from items where id = " + id);
+			statement.executeUpdate("delete from items where id = " + Itemid);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());

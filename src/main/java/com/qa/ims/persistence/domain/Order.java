@@ -1,25 +1,43 @@
 package com.qa.ims.persistence.domain;
 
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Order {
 
 	private Long id;
 	private int ordersNumItems;
-	private double ordersCost;
+	private int ordersCost;
 	private Date ordersDate;
-	private int item_id;
+	private int Itemid;
 	private int customer_id;
 	
-	public Order(Long id, int ordersNumItems, double ordersCost, Date ordersDate, int item_id, int customer_id) {
+	public Order(Long id, int ordersNumItems, int ordersCost, Date ordersDate, int item_id, int customer_id) {
 		this.id=id;
 		this.ordersNumItems=ordersNumItems;
 		this.ordersCost=ordersCost;
 		this.ordersDate=ordersDate;
-		this.item_id=item_id;
+		this.Itemid=item_id;
 		this.customer_id=customer_id;
 	}
-
+	
+	public Order(Long id, int item_id, int customer_id) {
+		this.id = id;
+		this.Itemid = item_id;
+		this.customer_id = customer_id;
+		
+		this.ordersNumItems = 0;
+		this.ordersCost = 0;
+//		this.ordersDate = 0;
+		this.ordersDate = Calendar.getInstance().getTime();
+		System.out.println("Date:" + this.ordersDate.toString());
+		System.out.println("Date length:" + this.ordersDate.toString().length());
+	}
+	
+	//=======================
+	// Methods
+	//=======================
+	
 	public Long getId() {
 		return id;
 	}
@@ -36,11 +54,11 @@ public class Order {
 		this.ordersNumItems = ordersNumItems;
 	}
 
-	public double getOrdersCost() {
+	public int getOrdersCost() {
 		return ordersCost;
 	}
 
-	public void setOrdersCost(double ordersCost) {
+	public void setOrdersCost(int ordersCost) {
 		this.ordersCost = ordersCost;
 	}
 
@@ -53,11 +71,11 @@ public class Order {
 	}
 
 	public int getItem_id() {
-		return item_id;
+		return Itemid;
 	}
 
-	public void setItem_id(int item_id) {
-		this.item_id = item_id;
+	public void setItemid(int Itemid) {
+		this.Itemid = Itemid;
 	}
 
 	public int getCustomer_id() {
