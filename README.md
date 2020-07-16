@@ -1,37 +1,26 @@
 Coverage: 34%
-# Project Title
+IMS project
 
-One Paragraph of project description goes here
+An IMS using Java, SQL and GCP to host it this will allow a user to input details of a customer, items and an order table which will allow ease of management across the business that it is being used in. This will allow a business to control what items go where and see what orders take place within a certain period and allows them to update their stocks list.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
+You will need to connect to GCP which allows you to view the results and to be able to get them results you need to use Java to be able to create the using the Eclipse IDE this will allow you to be able connect to the SQL instance on the Java using the IP and changing the IP on the GCP instance so anything can connect if it has the right IP address for it.
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You will need Eclipse as an IDE, Java as the language, Maven for testing, SQL to store your data and then you need a GCP account for the storing of data on the cloud.
+TO install Eclipse you need to download teh .exe file and then run it and install the one for entreprise and developers when you get to that stage, to download Java you need to download the zip file for the JDK off the Oracle website and then you need to configure it within the environment system files and the same is to be done with maven. TO download MySQL you need to download the .exe file and the install it using that. For GCP you need an account and to make an instance on the SQL section of their page.
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
 Say what the step will be
+You will need to be on the Eclipse IDE and then you will need to be able to connect to your GCP instance and then run the program to enter the data of whatever you want e.g the customer which will store it on GCP
 
-```
-Give the example
-```
+And repeat until you have added all the information you want.
 
-And repeat
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
