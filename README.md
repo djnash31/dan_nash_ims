@@ -24,34 +24,24 @@ And repeat until you have added all the information you want.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+These tests allow me to chekc everything is doing what it should be, such as updating an item within the table. This will allow you to be able to get right results everytime and since the code is based off the tests it will be very easy to see what works and what doesn't.
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+They test the Daos for all the tables, it test teh services and the IMS which ensures it runs properly to be bale to connect with everything.
 
-```
-Give an example
-```
 
 ### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
+These are done for GCP and how I will implement them onto a live server which will let me see how compatible it is with different pieces of the cloud and which information is stored where.
 
 ### And coding style tests
 
 Explain what these tests test and why
-
-```
-Give an example
-```
+To ensure that I am not repeatin any bits of code within the program this will allow it to run slightly faster and take less time to compile.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+We can deploy this within a live system by using the cloud to host also to store the data there as well as it will need to be accessed by many other people this will allow a code standard and speed.
 
 ## Built With
 
