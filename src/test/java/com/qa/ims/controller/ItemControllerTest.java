@@ -20,33 +20,33 @@ public class ItemControllerTest {
 	
 	@InjectMocks
 	private itemServices ItemServices;
-//	
-//	@Test
-//	public void ItemServicesCreate() {
-//		Item item = new Item("Chair", 600);
-//		ItemServices.create(item);
-//		Mockito.verify(itemDao, Mockito.times(1)).create(item);
-//	}
-//	@Test
-//	public void ItemServicesRead() {
-//		ItemServices.readAll();
-//		Mockito.verify(itemDao, Mockito.times(1)).readAll();
-//	}
-//	@Test 
-//	public void ItemServicesUpdate() {
-//		Item item = new Item("Xbox", 200);
-//		ItemServices.update(item);
-//		Mockito.verify(itemDao, Mockito.times(1)).update(item);
-//	}
-//	@Test
-//	public void ItemServicesDelete() {
-//		ItemServices.delete(1L);
-//		Mockito.verify(itemDao, Mockito.times(1)).delete(1L);
-//	}
+	
+	@Test
+	public void ItemServicesCreate() {
+		Item item = new Item("Chair", 600);
+		ItemServices.create(item);
+		Mockito.verify(itemDao, Mockito.times(1)).create(item);
+	}
+	@Test
+	public void ItemServicesRead() {
+		ItemServices.readAll();
+		Mockito.verify(itemDao, Mockito.times(1)).readAll();
+	}
+	@Test 
+	public void ItemServicesUpdate() {
+		Item item = new Item("Xbox", 200);
+		ItemServices.update(item);
+		Mockito.verify(itemDao, Mockito.times(1)).update(item);
+	}
+	@Test
+	public void ItemServicesDelete() {
+		ItemServices.delete(1L);
+		Mockito.verify(itemDao, Mockito.times(1)).delete(1L);
+	}
 	@Test
 	public void constructor() {
 		ItemController test = new ItemController(new itemServices(new itemDao("","")));
-//		ItemController test = new ItemController(CrudServices<>);
+
 	}
 }
 
