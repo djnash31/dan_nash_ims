@@ -34,6 +34,14 @@ public class Order {
 		System.out.println("Date length:" + this.ordersDate.toString().length());
 	}
 	
+	public Order(int item_id, int customer_id, Date ordersDate, int ordersNumItems, int ordersCost) {
+		this.Itemid = item_id;
+		this.customer_id = customer_id;
+		this.ordersDate = Calendar.getInstance().getTime();
+		this.ordersNumItems = ordersNumItems ;
+		this.ordersCost = ordersCost;
+	}
+	
 	//=======================
 	// Methods
 	//=======================
@@ -85,5 +93,6 @@ public class Order {
 	public void setCustomer_id(int customer_id) {
 		this.customer_id = customer_id;
 	}
-	
+
+
 }

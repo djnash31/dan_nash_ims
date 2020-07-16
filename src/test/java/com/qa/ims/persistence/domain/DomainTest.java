@@ -30,4 +30,14 @@ public class DomainTest {
 		assertTrue(domain.getDescription().toLowerCase().contains("close"));
 	}
 
+//	@Test
+//	public void test_domains() {
+//		Domain test = new printDomains();
+//		
+//	}
+	@Test
+	public void test_domains2() {
+		Domain test = Domain.getDomain();
+		
+	}
 }

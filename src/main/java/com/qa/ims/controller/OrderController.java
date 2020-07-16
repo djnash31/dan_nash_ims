@@ -45,8 +45,8 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order create() {
-		LOGGER.info("Please enter the order ID");
-		Long id = Long.valueOf(getInput());
+//		LOGGER.info("Please enter the order ID");
+//		Long id = Long.valueOf(getInput());
 		LOGGER.info("Please enter the product ID");
 		int Itemid = getInt();
 		LOGGER.info("Please enter the customer ID");
@@ -54,10 +54,10 @@ public class OrderController implements CrudController<Order> {
 		LOGGER.info("Please enter the cost");
 		int ordersCost = getInt();
 		LOGGER.info("Please enter the number of iems");
-		int orderNumItems = getInt();
+		int ordersNumItems = getInt();
 		LOGGER.info("What is the order date");
 		Date ordersDate = Calendar.getInstance().getTime();
-		Order order = orderService.create(new Order(id, Itemid, customer_id, ordersDate, orderNumItems, ordersCost));
+		Order order = orderService.create(new Order(Itemid, customer_id, ordersDate, ordersNumItems, ordersCost));
 		LOGGER.info("Order created");
 		return order;
 	}

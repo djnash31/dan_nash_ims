@@ -88,8 +88,8 @@ public class orderDao implements Dao<Order> {
 		public Order create(Order order) {
 			try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 					Statement statement = connection.createStatement();) {
-				statement.executeUpdate("insert into orders(id, Itemid, customer_id, ordersDate, orderNumItems, ordersCost) values('" + order.getOrdersCost()
-						+ "','" + order.getItem_id() + order.getCustomer_id() + order.getOrdersDate()+ "," + order.getId() + "," +order.getOrdersCost() +"'");
+				statement.executeUpdate("insert into orders( Itemid, customer_id, ordersDate, orderNumItems, ordersCost) values('" + order.getOrdersCost()
+						+ "','" + order.getItem_id() + order.getCustomer_id() + order.getOrdersDate() + "," +order.getOrdersCost() +"'");
 				return readLatest();
 			} catch (Exception e) {
 				LOGGER.debug(e.getStackTrace());
