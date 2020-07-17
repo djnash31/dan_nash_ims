@@ -72,6 +72,16 @@
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
+		<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M5</version>
+    <configuration>
+        <includes>
+            <include>TestFail.java</include>
+        </includes>
+        <testFailureIgnore>true</testFailureIgnore>
+    </configuration>
+</plugin>
 			<!-- Creates a jar for the code (does not contain other dependencies which 
 				are needed for the project to run out of the box) -->
 			<plugin>

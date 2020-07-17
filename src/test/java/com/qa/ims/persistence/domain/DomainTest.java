@@ -35,9 +35,5 @@ public class DomainTest {
 //		Domain test = new printDomains();
 //		
 //	}
-	@Test
-	public void test_domains2() {
-		Domain test = Domain.getDomain();
-		
-	}
+
 }
