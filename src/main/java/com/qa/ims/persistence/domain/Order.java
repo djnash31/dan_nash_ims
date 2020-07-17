@@ -8,15 +8,13 @@ public class Order {
 	private Long id;
 	private int ordersNumItems;
 	private int ordersCost;
-	private Date ordersDate;
 	private int Itemid;
 	private int customer_id;
 	
-	public Order(Long id, int ordersNumItems, int ordersCost, Date ordersDate, int item_id, int customer_id) {
+	public Order(Long id, int ordersNumItems, int ordersCost, int item_id, int customer_id) {
 		this.id=id;
 		this.ordersNumItems=ordersNumItems;
 		this.ordersCost=ordersCost;
-		this.ordersDate=ordersDate;
 		this.Itemid=item_id;
 		this.customer_id=customer_id;
 	}
@@ -28,16 +26,11 @@ public class Order {
 		
 		this.ordersNumItems = 0;
 		this.ordersCost = 0;
-//		this.ordersDate = 0;
-		this.ordersDate = Calendar.getInstance().getTime();
-		System.out.println("Date:" + this.ordersDate.toString());
-		System.out.println("Date length:" + this.ordersDate.toString().length());
 	}
 	
-	public Order(int item_id, int customer_id, Date ordersDate, int ordersNumItems, int ordersCost) {
+	public Order(int item_id, int customer_id,  int ordersNumItems, int ordersCost) {
 		this.Itemid = item_id;
 		this.customer_id = customer_id;
-		this.ordersDate = Calendar.getInstance().getTime();
 		this.ordersNumItems = ordersNumItems ;
 		this.ordersCost = ordersCost;
 	}
@@ -70,13 +63,6 @@ public class Order {
 		this.ordersCost = ordersCost;
 	}
 
-	public Date getOrdersDate() {
-		return ordersDate;
-	}
-
-	public void setOrdersDate(Date ordersDate) {
-		this.ordersDate = ordersDate;
-	}
 
 	public int getItem_id() {
 		return Itemid;

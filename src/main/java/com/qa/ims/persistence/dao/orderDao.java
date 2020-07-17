@@ -41,9 +41,8 @@ public class orderDao implements Dao<Order> {
 			int customer_id = resultSet.getInt("customer_id");
 			int ordersNumItems = resultSet.getInt("orderNumItems") ;
 			int ordersCost = resultSet.getInt("ordersCost");
-			Date ordersDate = resultSet.getDate("ordersDate");
 			
-			return new Order( id,  ordersNumItems,  ordersCost,  ordersDate,  Itemid,  customer_id);
+			return new Order( id,  ordersNumItems,  ordersCost,   Itemid,  customer_id);
 		}
 
 		/**
@@ -88,8 +87,8 @@ public class orderDao implements Dao<Order> {
 		public Order create(Order order) {
 			try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 					Statement statement = connection.createStatement();) {
-				statement.executeUpdate("insert into orders ( item_id, customer_id, ordersDate, ordersNumItems, ordersCost) values(" + order.getOrdersCost()
-						+ "," + order.getItem_id()+"," + order.getCustomer_id() +","+ order.getOrdersDate()+"," +order.getOrdersCost() +")");
+				statement.executeUpdate("insert into orders ( item_id, customer_id,  ordersNumItems, ordersCost) values(" + order.getOrdersCost()
+						+ "," + order.getItem_id()+"," + order.getCustomer_id() +"," +order.getOrdersCost() +")");
 				return readLatest();
 			} catch (Exception e) {
 				LOGGER.debug(e.getStackTrace());

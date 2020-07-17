@@ -53,9 +53,7 @@ public class OrderController implements CrudController<Order> {
 		int ordersCost = getInt();
 		LOGGER.info("Please enter the number of iems");
 		int ordersNumItems = getInt();
-//		LOGGER.info("What is the order date");
-		Date ordersDate = Calendar.getInstance().getTime();
-		Order order = orderService.create(new Order(Itemid, customer_id, ordersDate, ordersNumItems, ordersCost));
+		Order order = orderService.create(new Order(Itemid, customer_id, ordersNumItems, ordersCost));
 		LOGGER.info("Order created");
 		return order;
 	}
@@ -75,9 +73,7 @@ public class OrderController implements CrudController<Order> {
 		int ordersCost = getInt();
 		LOGGER.info("Please enter the number of iems");
 		int orderNumItems = getInt();
-		LOGGER.info("What is the order date");
-		Date ordersDate = Calendar.getInstance().getTime();
-		Order order = orderService.update(new Order(id, Itemid, customer_id, ordersDate, orderNumItems, ordersCost));
+		Order order = orderService.update(new Order(id, Itemid, customer_id, orderNumItems, ordersCost));
 		LOGGER.info("Order Updated");
 		return order;
 	}
