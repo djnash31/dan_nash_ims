@@ -39,7 +39,7 @@ public class orderDao implements Dao<Order> {
 			Long id = resultSet.getLong("id");
 			int Itemid =  resultSet.getInt("item_id");
 			int customer_id = resultSet.getInt("customer_id");
-			int ordersNumItems = resultSet.getInt("orderNumItems") ;
+			int ordersNumItems = resultSet.getInt("ordersNumItems") ;
 			int ordersCost = resultSet.getInt("ordersCost");
 			
 			return new Order( id,  ordersNumItems,  ordersCost,   Itemid,  customer_id);

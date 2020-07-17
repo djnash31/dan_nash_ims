@@ -17,7 +17,7 @@ public class ItemTest {
 	public void test_getsetId() {
 		Item test = new Item(1L, "Xbox", 4 );
 		test.setItemid(2L);
-		assertEquals((Long)2L, test.getItemid());
+		assertEquals((Long)2L, test.getItem_id());
 	}
 	@Test 
 	public void test_getsetName() {

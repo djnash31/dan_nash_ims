@@ -115,8 +115,8 @@ public class itemDao implements Dao<Item>{
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("update customers set name ='" + item.getName() + "', price ='"
-					+ item.getitemsPrice() + "' where id =" + item.getItemid());
-			return readItem(item.getItemid());
+					+ item.getitemsPrice() + "' where id =" + item.getItem_id());
+			return readItem(item.getItem_id());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
