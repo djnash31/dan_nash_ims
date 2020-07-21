@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ForenameSurname-SoftwareMarch16</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.controller</a> &gt; <span class="el_source">CustomerController.java</span></div><h1>CustomerController.java</h1><pre class="source lang-java linenums">package com.qa.ims.controller;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.services.CrudServices;
+import com.qa.ims.utils.Utils;
+
+
+public class CustomerController implements CrudController&lt;Customer&gt; {
+
+<span class="fc" id="L14">	public static final Logger LOGGER = Logger.getLogger(CustomerController.class);</span>
+
+	private CrudServices&lt;Customer&gt; customerService;
+
+<span class="fc" id="L18">	public CustomerController(CrudServices&lt;Customer&gt; customerService) {</span>
+<span class="fc" id="L19">		this.customerService = customerService;</span>
+<span class="fc" id="L20">	}</span>
+
+	String getInput() {
+<span class="nc" id="L23">		return Utils.getInput();</span>
+	}
+
+	/**
+	 * Reads all customers to the logger
+	 */
+	@Override
+	public List&lt;Customer&gt; readAll() {
+<span class="fc" id="L31">		List&lt;Customer&gt; customers = customerService.readAll();</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">		for (Customer customer : customers) {</span>
+<span class="fc" id="L33">			LOGGER.info(customer.toString());</span>
+		}
+<span class="fc" id="L35">		return customers;</span>
+	}
+
+	/**
+	 * Creates a customer by taking in user input
+	 */
+	@Override
+	public Customer create() {
+<span class="fc" id="L43">		LOGGER.info(&quot;Please enter a first name&quot;);</span>
+<span class="fc" id="L44">		String firstName = getInput();</span>
+<span class="fc" id="L45">		LOGGER.info(&quot;Please enter the surname&quot;);</span>
+<span class="fc" id="L46">		String surname = getInput();</span>
+<span class="fc" id="L47">		Customer customer = customerService.create(new Customer(firstName, surname));</span>
+<span class="fc" id="L48">		LOGGER.info(&quot;Customer created&quot;);</span>
+<span class="fc" id="L49">		return customer;</span>
+	}
+
+	/**
+	 * Updates an existing customer by taking in user input
+	 */
+	@Override
+	public Customer update() {
+<span class="fc" id="L57">		LOGGER.info(&quot;Please enter the id of the customer you would like to update&quot;);</span>
+<span class="fc" id="L58">		Long id = Long.valueOf(getInput());</span>
+<span class="fc" id="L59">		LOGGER.info(&quot;Please enter a first name&quot;);</span>
+<span class="fc" id="L60">		String firstName = getInput();</span>
+<span class="fc" id="L61">		LOGGER.info(&quot;Please enter a surname&quot;);</span>
+<span class="fc" id="L62">		String surname = getInput();</span>
+<span class="fc" id="L63">		Customer customer = customerService.update(new Customer(id, firstName, surname));</span>
+<span class="fc" id="L64">		LOGGER.info(&quot;Customer Updated&quot;);</span>
+<span class="fc" id="L65">		return customer;</span>
+	}
+
+	/**
+	 * Deletes an existing customer by the id of the customer
+	 */
+	@Override
+	public void delete() {
+<span class="fc" id="L73">		LOGGER.info(&quot;Please enter the id of the customer you would like to delete&quot;);</span>
+<span class="fc" id="L74">		Long id = Long.valueOf(getInput());</span>
+<span class="fc" id="L75">		customerService.delete(id);</span>
+<span class="fc" id="L76">	}</span>
+
+	public Customer create(Customer customer) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L80">		return null;</span>
+	}
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L86">	}</span>
+
+	public Customer update(Customer customer) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L90">		return null;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
